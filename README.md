@@ -1,93 +1,75 @@
 # iLink Academy Landing
 
-Тестовое задание: лендинг Академии iLink с блоком «О себе», каруселью отзывов и формой добавления отзыва.
+Одностраничный лендинг для тестового задания **Frontend-стажёр в Академию iLink**. Страница знакомит с кандидатом, показывает отзывы о компании и позволяет оставить свой отзыв через модальное окно.
 
-## Live demo
+**Демо:** [kazanceve.github.io/ilink](https://kazanceve.github.io/ilink)
 
-https://kazanceve.github.io/ilink
+## Возможности
 
-## Запуск локально
+- **Шапка** — аватар и имя, логотип iLink Academy, кнопка «Панель управления» с плавным скроллом к блоку профиля
+- **Hero** — приветственный заголовок на фирменном фиолетовом фоне
+- **О себе** — фото, дата рождения, город, пол, возраст, текст о кандидате
+- **Отзывы** — карусель на Swiper (стрелки, loop, 1 слайд на mobile / 2 на desktop)
+- **Форма отзыва** — имя, загрузка фото, текст до 200 символов со счётчиком, валидация полей, тост об успешной отправке
+- **Адаптив** — вёрстка под desktop и mobile по макету
+
+## Стек
+
+| | |
+|---|---|
+| UI | React 17 (functional components) |
+| Сборка | Create React App |
+| Слайдер | [Swiper](https://swiperjs.com/) 11 |
+| Стили | CSS (без UI-библиотек) |
+| Деплой | GitHub Pages (`gh-pages`) |
+
+## Быстрый старт
 
 ```bash
+git clone https://github.com/KazancevE/ilink.git
+cd ilink
 npm install
 npm start
 ```
 
+Приложение откроется на [http://localhost:3000](http://localhost:3000).
+
+## Скрипты
+
+| Команда | Описание |
+|---------|----------|
+| `npm start` | Режим разработки с hot reload |
+| `npm test` | Юнит-тесты (валидация формы, smoke App) |
+| `npm run build` | Production-сборка в папку `build/` |
+| `npm run deploy` | Сборка и публикация на GitHub Pages |
+
+## Структура проекта
+
+```
+src/
+├── components/       # Header, Hero, ProfileCard, Reviews*, ReviewModal, Toast, Footer
+├── data/             # profile.js, seedReviews.js
+├── utils/            # validation, formatDate, getAge
+├── img/              # изображения и иконки
+└── App.js            # корневой state: отзывы, модалка, тосты
+```
+
 ## Деплой на GitHub Pages
+
+1. Убедитесь, что в `package.json` указан корректный `homepage` (сейчас: `https://kazanceve.github.io/ilink`).
+2. В настройках репозитория GitHub: **Pages → Source → Deploy from branch → `gh-pages` / root**.
+3. Выполните:
 
 ```bash
 npm run deploy
 ```
 
----
+## Макет и ТЗ
 
-# Getting Started with Create React App
+- [Figma — Landing Design Academy](https://www.figma.com/design/Qw3CzQnQYI607ZGEUYOfDU/Landing-Design-Academy)
+- Требования к заданию — файл `ТЗ.pdf` в корне репозитория
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Автор
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Егор Казанцев** — Томск  
+Тестовое задание, Академия iLink
