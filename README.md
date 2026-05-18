@@ -1,3 +1,26 @@
+# iLink Academy Landing
+
+Тестовое задание: лендинг Академии iLink с блоком «О себе», каруселью отзывов и формой добавления отзыва.
+
+## Live demo
+
+https://kazanceve.github.io/ilink
+
+## Запуск локально
+
+```bash
+npm install
+npm start
+```
+
+## Деплой на GitHub Pages
+
+```bash
+npm run deploy
+```
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

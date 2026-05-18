@@ -1,0 +1,20 @@
+.hero {
+  padding-top: 2%;
+}
+
+.hero__title {
+  margin-bottom: 10%;
+  font-family: var(--font-heading);
+  font-size: clamp(40px, 8vw, 124px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.0124em;
+  text-align: left;
+  color: var(--color-white);
+}
+
+@media (max-width: 767px) {
+  .hero__title {
+    margin-bottom: 8%;
+  }
+}

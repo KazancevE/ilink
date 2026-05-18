@@ -1,47 +1,61 @@
+import { useState, useCallback } from 'react';
+import Header from './components/Header/Header';
+import Hero from './components/Hero/Hero';
+import ProfileCard from './components/ProfileCard/ProfileCard';
+import ReviewsSection from './components/ReviewsSection/ReviewsSection';
+import Footer from './components/Footer/Footer';
+import ReviewModal from './components/ReviewModal/ReviewModal';
+import ToastContainer from './components/Toast/ToastContainer';
+import { seedReviews } from './data/seedReviews';
+import { formatDateDDMMYYYY } from './utils/formatDate';
 import './App.css';
 
-import {Component} from "react";
+export default function App() {
+  const [reviews, setReviews] = useState(seedReviews);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [toasts, setToasts] = useState([]);
 
-import Header from './header'
-import AppBody from './AppBody'
+  const addToast = useCallback((type, title, message) => {
+    const id = Date.now();
+    setToasts((prev) => [...prev, { id, type, title, message }]);
+  }, []);
 
-// let openRequest = indexedDB.open("test", 1);
-// let db = openRequest.result;
-// openRequest.onupgradeneeded = function () {
-//
-// };
-//
-// openRequest.error = function () {
-//     console.log('error')
-// };
-//
-// openRequest.onsuccess = function () {
-//
-//
-//     db.onversionchange = function () {
-//         db.close();
-//         alert("База данных устарела, пожалуста, перезагрузите страницу.")
-//     };
-// }
-//
-// openRequest.onblocked = function() {
-//
-// }
-// db.createObjectStore("base", ["autoIncrement"]);
-// let transaction = db.transaction('reviewsArr');
-// // let reviewsArr = transaction.objectStore('reviewsArr');
+  const dismissToast = useCallback((id) => {
+    setToasts((prev) => prev.filter((toast) => toast.id !== id));
+  }, []);
 
-class App extends Component {
-  render() {
-    return (
-        <div className="App">
-            <Header />
-            <AppBody />
+  const handleReviewSubmit = ({ name, text, file }) => {
+    console.log({ name, review: text, fileName: file?.name ?? null });
 
+    const avatarUrl = file ? URL.createObjectURL(file) : null;
+    const newReview = {
+      id: Date.now(),
+      name,
+      text,
+      date: formatDateDDMMYYYY(),
+      avatarUrl,
+    };
 
-        </div>
-    )
-  }
+    setReviews((prev) => [newReview, ...prev]);
+    setIsModalOpen(false);
+    addToast('success', 'Успешно!', 'Спасибо за отзыв о нашей компании :)');
+  };
+
+  return (
+    <div className="App">
+      <Header />
+      <main className="page-main">
+        <Hero />
+        <ProfileCard />
+        <ReviewsSection reviews={reviews} onAddReview={() => setIsModalOpen(true)} />
+      </main>
+      <Footer />
+      <ReviewModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleReviewSubmit}
+      />
+      <ToastContainer toasts={toasts} onDismiss={dismissToast} />
+    </div>
+  );
 }
-
-export default App;

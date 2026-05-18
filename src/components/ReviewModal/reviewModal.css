@@ -1,0 +1,167 @@
+.modalContain {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.modalFrame {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 670px;
+  min-height: 440px;
+  background: var(--color-white);
+  padding: 24px 3%;
+}
+
+.modalFormWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modalForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.modalInputName {
+  width: 100%;
+  max-width: 395px;
+  height: 52px;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  padding: 0 12px;
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+.modalFrame p {
+  text-align: left;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.modalHeader button {
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.modalBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 217px;
+  height: 52px;
+  padding: 0 16px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+.modalInputReview {
+  width: 100%;
+  min-height: 105px;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  padding: 12px;
+  resize: vertical;
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+.modal-counter {
+  font-size: 12px;
+  color: var(--color-muted);
+  text-align: right;
+}
+
+.field-error {
+  display: block;
+  color: var(--color-error);
+  font-size: 12px;
+  font-family: var(--font-body);
+}
+
+.modalFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.modalFooter button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 17px 28px;
+  min-width: 203px;
+  height: 52px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--color-white);
+}
+
+.modalFooter img {
+  height: 19px;
+}
+
+.modalFooter p {
+  flex: 1;
+  min-width: 200px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-muted);
+}
+
+@media (max-width: 767px) {
+  .modalFrame {
+    min-height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modalInputName,
+  .modalInputReview {
+    max-width: 100%;
+  }
+
+  .modalBtn {
+    width: 100%;
+    margin-left: 0;
+  }
+}
