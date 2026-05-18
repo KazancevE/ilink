@@ -1,7 +1,7 @@
 # Design Spec: iLink Academy Landing Page
 
 **Date:** 2026-05-18  
-**Status:** Approved pending user review  
+**Status:** Approved  
 **Goal:** Maximum score (~100 pts) per test assignment (ТЗ.pdf + Landing Design Academy.pdf)
 
 ## Scope
